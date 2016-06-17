@@ -1,0 +1,34 @@
+{
+  "name": "expressive-api",
+  "version": "0.0.99",
+  "description": "Express API serving that just makes sense",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/super-cache-money/expressive-api.git"
+  },
+  "keywords": [
+    "express",
+    "promise",
+    "api",
+    "directory",
+    "server",
+    "lit AF"
+  ],
+  "author": "Arjun Khoosal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/super-cache-money/expressive-api/issues"
+  },
+  "homepage": "https://github.com/super-cache-money/expressive-api#readme",
+  "dependencies": {
+    "pretty-error": "^2.0.0",
+    "require-directory": "^2.1.1"
+  },
+  "peerDependencies": {
+    "express": "4.x.x"
+  }
+}
