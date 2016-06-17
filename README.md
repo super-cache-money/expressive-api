@@ -1,3 +1,5 @@
+# Express API serving that just makes sense
+
 You think of an API like a directory structure, so it's time you served it out of one.
 
 Define your api like this:
