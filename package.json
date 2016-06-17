@@ -1,6 +1,6 @@
 {
   "name": "expressive-api",
-  "version": "0.0.99",
+  "version": "1.0.0",
   "description": "Express API serving that just makes sense",
   "main": "index.js",
   "scripts": {
