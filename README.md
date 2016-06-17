@@ -51,7 +51,7 @@ Here's how to actually serve the api:
 Now you can hit your api:
     
     GET /user/fetch
-    POST /deep/deeper/sodeep/cervix
+    POST /deep/deeper/cervix
 
 ## Extra Features
 
