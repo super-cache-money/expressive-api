@@ -93,6 +93,4 @@ Just add an array of `allowedMethods` as a property of your endpoint function, l
 
 Your feature suggestions and pull requests are welcome on [the repo](https://github.com/super-cache-money/expressive-api). 
 
-PS: Dear [react-redux-universal-hot-example](https://github.com/erikras/react-redux-universal-hot-example), 
-your sick boilerplate inspired some of what's baked into this.
-Thank you!
+PS: Dear [react-redux-universal-hot-example](https://github.com/erikras/react-redux-universal-hot-example), your sick boilerplate inspired some of what's baked into this. Thank you!
