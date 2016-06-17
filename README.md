@@ -1,5 +1,3 @@
-# Express API serving that just makes sense
-
 You think of an API like a directory structure, so it's time you served it out of one.
 
 Define your api like this:
@@ -96,5 +94,5 @@ Just add an array of `allowedMethods` as a property of your endpoint function, l
 Your feature suggestions and pull requests are welcome on [the repo](https://github.com/super-cache-money/expressive-api). 
 
 PS: Dear [react-redux-universal-hot-example](https://github.com/erikras/react-redux-universal-hot-example), 
-Your sick boilerplate inspired some of what's baked into this.
+your sick boilerplate inspired some of what's baked into this.
 Thank you!
