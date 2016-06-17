@@ -93,4 +93,4 @@ Just add an array of `allowedMethods` as a property of your endpoint function, l
     
     module.exports = saveData;
 
-That's all folks!
+Your feature suggestions and pull requests are super-welcome on [the repo](https://github.com/super-cache-money/expressive-api). 
