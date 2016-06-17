@@ -15,7 +15,7 @@ Define your api like this:
       |-mcHammer
          |-touch.js
 
-Each endpoint must export a function which accepts requests and produces json-friendly output, like this:
+Each endpoint must export a function which accepts requests and produces **json-friendly** output, like this:
 
 **isCervixReached.js**
 
@@ -30,7 +30,7 @@ For async functions, either works:
  - return a promise
  - call the `callback` param supplied to your endpoint
  
-Here's how to actually serve the api:
+Here's how to actually serve the API:
 
     var express = require('express');
     var app = express();
@@ -48,16 +48,18 @@ Here's how to actually serve the api:
       console.log('And it's running - easy hey?');
     });
 
-Now you can hit your api:
+Now you can hit your API:
     
     GET /user/fetch
     POST /deep/deeper/cervix
+
+It's worth mentioning again that this is a **JSON only** API.
 
 ## Extra Features
 
 ### Controlling which API files are included
 
-Under the hood, this uses [require directory](https://www.npmjs.com/package/require-directory), so you can use pass in any of its options like this:
+Under the hood, this uses [require-directory](https://www.npmjs.com/package/require-directory), so you can pass in any of its options directly like this:
 
     app.use(serveApi('./apiDir'), {
       whitelist: /\.js$/
