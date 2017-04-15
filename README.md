@@ -11,18 +11,25 @@ Define your api like this:
          |-create.js
       |-deep
          |-deeper
-            |-isCervixReached.js
+            |-explore.js
       |-mcHammer
          |-touch.js
 
 Each endpoint must export a function which accepts requests and produces **json-friendly** output, like this:
 
-**isCervixReached.js**
+**explore.js**
 
-    module.exports = function isCervixReached(req, callback) {
-      return {
-        bumped: req.body.distanceCovered > 11
-      };
+    module.exports = function explore(req, callback) {
+      var depth = req.body.depth;
+      if (depth > 1000) {
+        return {
+          balrog: true
+        };
+      } else {
+        return {
+          balrog: false
+        }
+      }
     }
 
 For async functions, either works:
@@ -51,7 +58,7 @@ Here's how to actually serve the API:
 Now you can hit your API:
     
     GET /user/fetch
-    POST /deep/deeper/cervix
+    POST /deep/deeper/explore
 
 It's worth mentioning again that this is a **JSON only** API.
 

@@ -83,7 +83,7 @@ module.exports = function (api, inputOptions) {
             } else {
               console.error('API ERROR:', pe.render(reason));
               var errorResponse = reason.message;
-              return res.status(reason.status || 500).json(errorResponse);
+              return res.status(reason.statusCode || 500).json(errorResponse);
             }
           });
         }
