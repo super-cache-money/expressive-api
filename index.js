@@ -7,6 +7,10 @@ module.exports = function (api, inputOptions) {
   var defaultOptions = {
     transformParams: function(req, callback){
       return [req, callback]; // the identity transform
+    },
+    processError: function(error){
+      // no extra processing by default
+      return;
     }
   }
 
@@ -16,7 +20,7 @@ module.exports = function (api, inputOptions) {
 
   var requireDirectoryOptions = Object.assign({}, options);
   delete requireDirectoryOptions.transformParams;
-
+  delete requireDirectoryOptions.processError;
 
   // if a location is passed for an api, create the object
   if (typeof api === 'string') {
@@ -83,6 +87,7 @@ module.exports = function (api, inputOptions) {
             } else {
               console.error('API ERROR:', pe.render(reason));
               var errorResponse = reason.message;
+              options.processError(reason);
               return res.status(reason.statusCode || 500).json(errorResponse);
             }
           });
