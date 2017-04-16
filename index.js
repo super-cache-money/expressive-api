@@ -85,12 +85,14 @@ module.exports = function (api, inputOptions) {
             if (reason && reason.redirect) {
               return res.redirect(reason.redirect);
             } else {
-              console.error('API ERROR:', pe.render(reason));
-              var errorResponse = reason.message;
-              options.processError(reason);
-              return res.status(reason.status || 500).json(errorResponse);
+              return res.status(reason.status || 500).json(reason.message);
             }
           });
+        }
+
+        function handleError(reason) {
+          console.error('API ERROR:', pe.render(reason));
+          options.processError(reason);
         }
 
         // in case the callback is used instead of returning a promise
@@ -104,8 +106,12 @@ module.exports = function (api, inputOptions) {
 
         // call the api point with the params and request specified
 
-
-        var output = currentAction.apply(null, options.transformParams(req, doneCb));
+        try {
+          var output = currentAction.apply(null, options.transformParams(req, doneCb));
+        } catch (reason) {
+          handleError(reason);
+          return res.status(reason.status || 500).json(reason.message);
+        }
 
 
         // if the output isn't an object, then it can't be returned (it is a JSON API), so hopefully the callback will be called
