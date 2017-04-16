@@ -85,6 +85,7 @@ module.exports = function (api, inputOptions) {
             if (reason && reason.redirect) {
               return res.redirect(reason.redirect);
             } else {
+              handleError(reason);
               return res.status(reason.status || 500).json(reason.message);
             }
           });
