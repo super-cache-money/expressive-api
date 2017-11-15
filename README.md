@@ -74,12 +74,12 @@ Under the hood, this uses [require-directory](https://www.npmjs.com/package/requ
 
 ### Define endpoints with whatever params you want
 
-You can specify a `transformParams(req, callback)` function which gets applied to the usual parameters.
+You can specify a `transformParams(req, callback, res)` function which gets applied to the usual parameters.
 The result should be **an array** of the parameters you want your API endpoints to receive.
 
 Here's one I use:
 
-    function transformParams(req, callback) {
+    function transformParams(req, callback, res) {
       // combine body and query into the params for the api
       var params = Object.assign({}, req.body);
       params = Object.assign(params, req.query);

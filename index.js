@@ -108,7 +108,7 @@ module.exports = function (api, inputOptions) {
         // call the api point with the params and request specified
 
         try {
-          var output = currentAction.apply(null, options.transformParams(req, doneCb));
+          var output = currentAction.apply(null, options.transformParams(req, doneCb, res));
         } catch (reason) {
           handleError(reason);
           return res.status(reason.status || 500).json(reason.message);
