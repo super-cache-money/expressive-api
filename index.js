@@ -80,13 +80,19 @@ module.exports = function (api, inputOptions) {
         // or responds with an error if the promise rejects
         function handleOutput(promise) {
           return promise.then(function (result) {
-            return res.json(result);
+            if (!res.headersSent) {
+              return res.json(result);
+            }
           }).catch(function (reason) {
             if (reason && reason.redirect) {
-              return res.redirect(reason.redirect);
+              if (!res.headersSent) {
+                return res.redirect(reason.redirect);
+              }
             } else {
               handleError(reason);
-              return res.status(reason.status || 500).json(reason.message);
+              if (!res.headersSent) {
+                return res.status(reason.status || 500).json(reason.message);
+              }
             }
           });
         }
